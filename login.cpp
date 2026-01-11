@@ -47,7 +47,7 @@ int main() {
     if (login()) {
         cout << "Login exitoso!\n";
     } else {
-        cout << "Usuario o contrasena incorrectos.\n";
+        cout << "Usuario o contrasena incorrectos."<<endl;
     }
 
     return 0;
