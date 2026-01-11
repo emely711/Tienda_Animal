@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -23,6 +22,13 @@ void cargarUsuarios() {
     archivoUsuarios.close();
 }
 
+void guardarUsuarios() {
+    ofstream archivoUsuarios("usuarios.txt");
+    for (const auto& usuario : listaUsuarios) {
+        archivoUsuarios << usuario.usuario << " " << usuario.contrasena << "\n";
+    }
+}
+
 bool login() {
     string usuarioIngresado, contrasenaIngresada;
     cout << "Usuario: ";
@@ -37,17 +43,36 @@ bool login() {
     return false;
 }
 
+void registrar() {
+    Usuario nuevoUsuario;
+    cout << "Nuevo usuario: ";
+    cin >> nuevoUsuario.usuario;
+    for (const auto& usuario : listaUsuarios) {
+        if (usuario.usuario == nuevoUsuario.usuario) {
+            cout << "Error: El usuario ya existe\n";
+            return;
+        }
+    }
+    cout << "Nueva contrasena: ";
+    cin >> nuevoUsuario.contrasena;
+    listaUsuarios.push_back(nuevoUsuario);
+    guardarUsuarios();
+    cout << "Usuario registrado correctamente\n";
+}
+
 int main() {
     cargarUsuarios();
+
     if (listaUsuarios.empty()) {
-        cout << "No hay usuarios registrados en el sistema.\n";
-        return 0;
+        cout << "No hay usuarios registrados. Debes crear uno.\n";
+        registrar();
     }
 
+    cout << "==== LOGIN ====\n";
     if (login()) {
         cout << "Login exitoso!\n";
     } else {
-        cout << "Usuario o contrasena incorrectos."<<endl;
+        cout << "Usuario o contrasena incorrectos.\n";
     }
 
     return 0;
