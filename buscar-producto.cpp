@@ -1,8 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <string>
-#include <cctype>
 
 using namespace std;
 
@@ -22,22 +20,26 @@ vector<Usuario> listaUsuarios;
 vector<Producto> productos;
 
 void buscarProducto() {
+    cout << "============================\n";
+    cout << "BUSCAR PRODUCTO\n";
+    cout << "============================\n";
+
     if (productos.empty()) {
-        cout << "La lista de productos está vacía\n";
+        cout << "No hay productos\n";
         return;
     }
-    string nombreBuscado;
+
+    string nombre;
     cin.ignore();
     cout << "Nombre a buscar: ";
-    getline(cin, nombreBuscado);
-    for (const auto& producto : productos) {
-        if (producto.nombre == nombreBuscado) {
-            cout << "============================\n";
-            cout << "Codigo: " << producto.codigo << endl;
-            cout << "Nombre: " << producto.nombre << endl;
-            cout << "Precio: " << producto.precio << endl;
-            cout << "Stock: " << producto.stock << endl;
-            cout << "============================\n";
+    getline(cin, nombre);
+
+    for (const auto& p : productos) {
+        if (p.nombre == nombre) {
+            cout << "----------------------------\n";
+            cout << "Codigo: " << p.codigo << endl;
+            cout << "Precio: " << p.precio << endl;
+            cout << "Stock: " << p.stock << endl;
             return;
         }
     }
@@ -45,7 +47,7 @@ void buscarProducto() {
 }
 
 int main(){
-	buscarProducto();
 	
+	buscarProducto();
 	return 0;
 }
