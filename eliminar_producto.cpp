@@ -20,24 +20,25 @@ struct Producto {
 
 vector<Usuario> listaUsuarios;
 vector<Producto> productos;
-
 void eliminarProducto() {
-    if (productos.empty()) {
-        cout << "La lista de productos está vacía\n";
-        return;
-    }
-    string codigoEliminar;
+    cout << "============================\n";
+    cout << "ELIMINAR PRODUCTO\n";
+    cout << "============================\n";
+
+    string codigo;
     cout << "Codigo a eliminar: ";
-    cin >> codigoEliminar;
+    cin >> codigo;
+
     for (size_t i = 0; i < productos.size(); i++) {
-        if (productos[i].codigo == codigoEliminar) {
+        if (productos[i].codigo == codigo) {
             productos.erase(productos.begin() + i);
-            cout << "Producto eliminado\n";
+            guardarProductos();
             return;
         }
     }
     cout << "Codigo no encontrado\n";
 }
+
 int main() {
     eliminarProducto();
 
