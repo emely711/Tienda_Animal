@@ -29,7 +29,7 @@ bool soloNumeros(const string& texto) {
     return true;
 }
 
-// Verificar si el codigo ya existe en el archivo
+
 bool codigoDuplicado(const string& codigo) {
     ifstream archivo("productos.txt");
     Producto p;
