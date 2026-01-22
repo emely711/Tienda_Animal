@@ -28,7 +28,7 @@ void eliminarProducto() {
     while (archivo >> p.codigo >> p.nombre >> p.precio >> p.stock) {
         if (p.codigo == codigo) {
             encontrado = true;
-            continue; // no copiar al archivo temporal
+            continue; 
         }
         temp << p.codigo << " " << p.nombre << " "
              << p.precio << " " << p.stock << "\n";
