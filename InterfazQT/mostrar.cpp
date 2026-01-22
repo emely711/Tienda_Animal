@@ -32,7 +32,7 @@ mostrar::mostrar(QWidget *parent)
         QString linea = in.readLine().trimmed();
         if (linea.isEmpty()) continue;
 
-        // 🔹 separar por espacios
+        
         QStringList campos = linea.split(" ", Qt::SkipEmptyParts);
 
         if (campos.size() < 4) continue;
@@ -60,4 +60,5 @@ void mostrar::on_salir_clicked()
 {
     close();
 }
+
 
