@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>imagen/caballo.png</file>
+        <file>imagen/monooo.png</file>
+        <file>imagen/perros.png</file>
+        <file>imagen/lorito.png</file>
+        <file>imagen/huellas.png</file>
+        <file>imagen/huellaaa.png</file>
+        <file>imagen/huella azul.png</file>
+    </qresource>
+</RCC>
